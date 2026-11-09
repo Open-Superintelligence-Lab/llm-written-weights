@@ -17,3 +17,4 @@ toy/data/
 toy/bigger_runs/*/work/
 toy/bigger_runs/*/state.pt
 toy/data/
+toy/suite/data/
