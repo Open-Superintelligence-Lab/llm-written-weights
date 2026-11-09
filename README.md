@@ -42,6 +42,17 @@ python3 bench.py score r1             # held-out score next to the training base
 python3 opus_chart.py                 # redraw charts/opus_10.png
 ```
 
+## Opus against training with 30% and 70% of examples
+
+The same bench with a fresh Opus 5.5 for each task and amount. Where Opus found the exact rule, it stays at 100 while training climbs toward it, so the gap shrinks but training never passes it. Where Opus found no rule (vehicles, steel, news topics), training catches up or wins once it has more data.
+
+![Opus writing weights against training on 10 tasks at 10%, 30% and 70% of examples](charts/opus_fracs.png)
+
+```bash
+cd toy/suite
+python3 opus_fracs_chart.py           # redraw charts/opus_fracs.png from runs/opus/results.jsonl
+```
+
 ## Setup
 
 ```bash

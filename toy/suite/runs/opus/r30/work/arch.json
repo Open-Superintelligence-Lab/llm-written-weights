@@ -1,0 +1,1 @@
+{"shapes": {"l1.weight": [32, 1000], "l1.bias": [32], "l2.weight": [32, 32], "l2.bias": [32], "l3.weight": [4, 32], "l3.bias": [4]}}
