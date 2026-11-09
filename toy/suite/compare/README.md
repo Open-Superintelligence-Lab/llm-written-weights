@@ -1,6 +1,6 @@
 # Trained network vs Opus-written network
 
-**Question (2–3 hours):** on the 3-number rule, does the trained network work the same way inside as the network Opus wrote, or did training learn something different?
+**Question (2–5 hours):** on the 3-number rule, how do the network Opus wrote and the trained network differ, and how does each one solve the rule? Analyze the weights, ask an AI to help you read them, and write a short writeup of the two networks and their differences.
 
 Both networks are the same shape and saw the same 300 training examples (10%). Opus wrote every weight by hand with no training and scores 100% on the 900 held-out examples. Training (best of 9 Adam settings) scores 72.3%.
 
@@ -22,8 +22,9 @@ def run(x): return silu(silu(x @ w["l1.weight"].T + w["l1.bias"]) @ w["l2.weight
 ## Steps
 
 1. Run both networks on all 32,768 inputs. Where does the trained one disagree with the rule? Draw a grid of `(a + b) mod 16` against `c` for each network.
-2. Look at each first-layer unit's weights over `a`, `b` and `c` (32 each). Does any trained unit respond to `a + b`, the way Opus's units do?
-3. Write one paragraph and one chart: same way, partly the same, or different.
+2. Look at each first-layer unit's weights over `a`, `b` and `c` (32 each). Which units does each network use, and what does each unit compute? Does any trained unit respond to `a + b`, the way Opus's units do?
+3. Ask an AI (Claude, ChatGPT or another) to help you read the weights: paste a unit's weights or your plots and ask what it computes and how the two networks solve the rule in different ways. Check its answers by running the network.
+4. Write a short writeup: how each network solves the rule, how they differ, and one chart.
 
 **What each answer means:**
 - **Same way, only less exact:** training was heading for Opus's solution and ran out of examples.

@@ -6,7 +6,7 @@ Pick one question, tell Vuk which one, and post your results within one week. Wr
 
 | # | Question | Start from |
 |---|---|---|
-| 1 | Do Opus and training solve the same task the same way? Look inside both networks and compare what each part does. | `search.py` answers runs in `toy/search_runs/`, `net.py`; a 2–3 hour version with both networks saved is in [`toy/suite/compare/`](toy/suite/compare/README.md) |
+| 1 | Do Opus and training solve the same task the same way? Look inside both networks and compare what each part does. | `search.py` answers runs in `toy/search_runs/`, `net.py`; a 2–5 hour version with both networks saved is in [`toy/suite/compare/`](toy/suite/compare/README.md) |
 | 2 | What does training change in the weights Opus wrote? Opus writes the weights of a small network, then we keep training that network and see which of Opus's numbers training keeps and which it overwrites. | `no_training.py`, `steps_saved.py` |
 | 3 | Which tasks can Opus write weights for, and which can't it? Make a map of where writing works and where it fails. | `search.py` task kinds, `digits.py`, `bigger.py` |
 | 4 | What kinds of damage can Opus fix? Break different parts of a trained network on purpose and ask Opus to repair each one. | `search.py` after mode |
