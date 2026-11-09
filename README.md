@@ -62,7 +62,7 @@ The last command checks every path of the bench in about 5 seconds and ends with
 | `toy/digits.py` | The same on small handwritten digits. |
 | `toy/steps_saved.py` | How many training steps an edit saves. |
 | `toy/read_rule.py`, `toy/cocluster.py`, `toy/data_gone.py` | Plain scripts with no LLM, as rivals. |
-| `toy/suite/` | The 11 new tasks: `data.py` (tasks), `nets.py` (networks), `baseline.py` (training baseline), `chart.py`, and every baseline run in `runs/baseline.jsonl`. `bench.py` is the Opus bench for these tasks, with every Opus run in `runs/opus/`. |
+| `toy/suite/` | The 11 new tasks: `data.py` (tasks), `nets.py` (networks), `baseline.py` (training baseline), `chart.py`, and every baseline run in `runs/baseline.jsonl`. `bench.py` is the Opus bench for these tasks, with every Opus run in `runs/opus/`. `compare/` holds the trained and the Opus-written network for each task, with a question to compare them. |
 | `toy/search_runs/` | All 51 earlier Opus runs: the code each one wrote, what it got back, and its audit. |
 | [RESULTS.md](RESULTS.md) | Every earlier table, the commands, and how to run an LLM as the editor. |
 | [NOTES.md](NOTES.md) | The working log, with every rule and prediction written before each test. |
