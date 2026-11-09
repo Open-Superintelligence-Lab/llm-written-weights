@@ -1,0 +1,10 @@
+{"run": "r1", "task": "rule3", "frac": 0.1, "held_out": 1.0, "on_train": 1.0, "training_baseline": 0.7233, "replies": 5, "evals": 1, "flags": [], "bad_files": []}
+{"run": "r4", "task": "circles", "frac": 0.1, "held_out": 1.0, "on_train": 1.0, "training_baseline": 0.8383, "replies": 3, "evals": 1, "flags": [], "bad_files": []}
+{"run": "r2", "task": "parity", "frac": 0.1, "held_out": 1.0, "on_train": 1.0, "training_baseline": 0.5411, "replies": 6, "evals": 1, "flags": ["reply 4: word match"], "bad_files": []}
+{"run": "r5", "task": "checkerboard", "frac": 0.1, "held_out": 1.0, "on_train": 1.0, "training_baseline": 0.9267, "replies": 4, "evals": 1, "flags": [], "bad_files": []}
+{"run": "r7", "task": "vehicle", "frac": 0.1, "held_out": 0.7352, "on_train": 0.869, "training_baseline": 0.7233, "replies": 5, "evals": 1, "flags": [], "bad_files": []}
+{"run": "r6", "task": "regression", "frac": 0.1, "held_out": 0.9979, "on_train": 0.9842, "training_baseline": 0.9075, "replies": 12, "evals": 3, "flags": ["reply 4: word match", "reply 5: word match", "reply 5: word match", "reply 6: word match"], "bad_files": []}
+{"run": "r8", "task": "steel", "frac": 0.1, "held_out": 0.6168, "on_train": 0.7474, "training_baseline": 0.6478, "replies": 6, "evals": 1, "flags": [], "bad_files": []}
+{"run": "r10", "task": "topics", "frac": 0.1, "held_out": 0.7003, "on_train": 0.8833, "training_baseline": 0.6348, "replies": 10, "evals": 2, "flags": [], "bad_files": []}
+{"run": "r9", "task": "robot", "frac": 0.1, "held_out": 0.9976, "on_train": 1.0, "training_baseline": 0.8417, "replies": 12, "evals": 3, "flags": [], "bad_files": []}
+{"run": "r3", "task": "spirals", "frac": 0.1, "held_out": 1.0, "on_train": 1.0, "training_baseline": 0.8367, "replies": 12, "evals": 2, "flags": ["reply 9: word match"], "bad_files": []}

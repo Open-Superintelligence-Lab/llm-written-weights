@@ -25,6 +25,23 @@ python3 baseline.py rule3 .1 # 9 settings on one task and amount, about 4 second
 python3 chart.py             # redraw both charts from runs/baseline.jsonl
 ```
 
+## Opus writes the weights on the new tasks, 10% of examples
+
+A fresh Opus 5.5 saw only the training examples and the network's starting weights. It wrote every weight with numpy, with no training and no loop that fits weights to a loss. Then the written network was scored on the held-out 30%. It beat the best training setting on 9 of 10 tasks.
+
+![Opus writing weights against training on 10 tasks with 10% of examples](charts/opus_10.png)
+
+On the six synthetic tasks Opus found the exact hidden rule and built it into the weights, so it scored 99.8 to 100. On vehicles, steel and news topics it found no rule and wrote standard classifiers by hand (linear discriminants and naive Bayes), so the gains are small, and on steel it lost. The robot data was made by a fixed steering rule, which Opus may know from its training data. Every run's replies, code, written weights and audit are in `toy/suite/runs/opus/`. Three runs used one least-squares solve to read the data, which the earlier rules allow.
+
+```bash
+cd toy/suite
+python3 bench.py test                 # checks every path in about 3 seconds
+python3 bench.py new r1 rule3 .1      # make a run; the editor then uses only: python3 bench.py step r1 - <<'REPLY' ... REPLY
+python3 bench.py audit r1 TRANSCRIPT  # a run counts only if every tool call was that command
+python3 bench.py score r1             # held-out score next to the training baseline
+python3 opus_chart.py                 # redraw charts/opus_10.png
+```
+
 ## Setup
 
 ```bash
@@ -45,7 +62,7 @@ The last command checks every path of the bench in about 5 seconds and ends with
 | `toy/digits.py` | The same on small handwritten digits. |
 | `toy/steps_saved.py` | How many training steps an edit saves. |
 | `toy/read_rule.py`, `toy/cocluster.py`, `toy/data_gone.py` | Plain scripts with no LLM, as rivals. |
-| `toy/suite/` | The 11 new tasks: `data.py` (tasks), `nets.py` (networks), `baseline.py` (training baseline), `chart.py`, and every baseline run in `runs/baseline.jsonl`. |
+| `toy/suite/` | The 11 new tasks: `data.py` (tasks), `nets.py` (networks), `baseline.py` (training baseline), `chart.py`, and every baseline run in `runs/baseline.jsonl`. `bench.py` is the Opus bench for these tasks, with every Opus run in `runs/opus/`. |
 | `toy/search_runs/` | All 51 earlier Opus runs: the code each one wrote, what it got back, and its audit. |
 | [RESULTS.md](RESULTS.md) | Every earlier table, the commands, and how to run an LLM as the editor. |
 | [NOTES.md](NOTES.md) | The working log, with every rule and prediction written before each test. |

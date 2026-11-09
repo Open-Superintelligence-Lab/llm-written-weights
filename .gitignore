@@ -18,3 +18,5 @@ toy/bigger_runs/*/work/
 toy/bigger_runs/*/state.pt
 toy/data/
 toy/suite/data/
+toy/suite/runs/opus/*/work/weights/
+toy/suite/runs/opus/*/work/train_*.npy
