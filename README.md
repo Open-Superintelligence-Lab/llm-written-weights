@@ -14,7 +14,7 @@ The paper adds 11 tasks to the synthetic tables: synthetic tasks with other inpu
 
 ![Training baseline on 11 tasks at 10%, 30% and 70% of examples](charts/baseline.png)
 
-Spirals, circles and the sum of sines already score 99% or more with 10% of examples. On those three, the LLM can beat training by at most 1 point.
+Every task scores higher with more examples, so each amount of data leaves room for the LLM to beat training. Parity, spirals, circles and the sines were made harder for this, because the first versions already scored 99% or more with 10% of examples. Parity now uses 5 hidden bits instead of 3. The spirals turn 3.5 times instead of 1.5. The circle task now has 6 rings instead of 1 circle. The sine frequencies are 10 to 25 instead of 1 to 6.
 
 ![Held-out accuracy of the 3-number rule while training, at 10%, 30% and 70% of examples](charts/baseline_curve.png)
 

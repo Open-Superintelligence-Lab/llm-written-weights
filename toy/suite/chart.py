@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, "..", "..", "charts")
 ORDER = ["parity", "rule3", "spirals", "circles", "checkerboard", "regression", "vehicle", "steel", "robot", "seq", "topics"]
-NAMES = dict(parity="parity of 3 bits", rule3="3-number rule", spirals="two spirals", circles="inside a circle", checkerboard="checkerboard", regression="sum of 3 sines (R²)",
+NAMES = dict(parity="parity of 5 bits", rule3="3-number rule", spirals="two spirals", circles="6 rings", checkerboard="checkerboard", regression="sum of 3 sines (R²)",
              vehicle="vehicle shapes", steel="steel faults", robot="robot sensors", seq="brackets + pattern", topics="news topics")
 FRACS, SHADES = (.1, .3, .7), ("#a9c8ee", "#5a9be3", "#1b4f91")
 plt.rcParams.update({"font.family": "Helvetica", "font.size": 12, "axes.spines.top": False, "axes.spines.right": False})

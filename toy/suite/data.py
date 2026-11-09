@@ -25,8 +25,8 @@ def split(n, name, frac):
 
 
 def parity(r, n=3000):
-    """16 bits in, label = XOR of 3 hidden bits. 65,536 possible inputs, 3,000 in the pool."""
-    v = r.permutation(65536)[:n]; x = (v[:, None] >> np.arange(16)) & 1; hidden = r.permutation(16)[:3]
+    """16 bits in, label = XOR of 5 hidden bits. 65,536 possible inputs, 3,000 in the pool."""
+    v = r.permutation(65536)[:n]; x = (v[:, None] >> np.arange(16)) & 1; hidden = r.permutation(16)[:5]
     return x.astype(np.float32), x[:, hidden].sum(1) % 2
 
 
@@ -38,15 +38,15 @@ def rule3(r, n=3000):
 
 
 def spirals(r, n=2000):
-    """Two interleaved spirals on real (x, y)."""
-    y = r.integers(0, 2, n); t = np.sqrt(r.random(n)) * 3 * np.pi; rad = t / (3 * np.pi)
+    """Two interleaved spirals on real (x, y), 3.5 turns each."""
+    y = r.integers(0, 2, n); t = np.sqrt(r.random(n)) * 7 * np.pi; rad = t / (7 * np.pi)
     x = np.stack([rad * np.cos(t + np.pi * y), rad * np.sin(t + np.pi * y)], 1) + r.normal(0, .02, (n, 2))
     return x.astype(np.float32), y
 
 
 def circles(r, n=2000):
-    """Points in a disc: inside a hidden radius or outside it."""
-    x = r.uniform(-1, 1, (n * 2, 2)); x = x[(x ** 2).sum(1) < 1][:n]; return x.astype(np.float32), ((x ** 2).sum(1) > .5).astype(int)
+    """Points in a disc cut into 6 rings of equal width; the label alternates from ring to ring."""
+    x = r.uniform(-1, 1, (n * 2, 2)); x = x[(x ** 2).sum(1) < 1][:n]; return x.astype(np.float32), (np.floor(np.sqrt((x ** 2).sum(1)) * 6) % 2).astype(int)
 
 
 def checkerboard(r, n=2000):
@@ -56,7 +56,7 @@ def checkerboard(r, n=2000):
 
 def regression(r, n=1000):
     """y = f(x) for a hidden sum of 3 sine waves. Training answers have noise; held-out answers are clean, in column 1."""
-    x = r.uniform(-1, 1, n); w, a, p = r.uniform(1, 6, 3), r.uniform(.3, 1, 3), r.uniform(0, 2 * np.pi, 3)
+    x = r.uniform(-1, 1, n); w, a, p = r.uniform(10, 25, 3), r.uniform(.3, 1, 3), r.uniform(0, 2 * np.pi, 3)
     clean = (a * np.sin(w * x[:, None] + p)).sum(1); return x[:, None].astype(np.float32), np.stack([clean + r.normal(0, .1, n), clean], 1).astype(np.float32)
 
 
