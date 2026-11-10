@@ -133,7 +133,7 @@ def task_text(mode):
 
 The network: the input is a one-hot number a (0 to {N - 1}), a one-hot number b (0 to {N - 1}) and a one-hot skill ({SKILLS} skills), concatenated in that order. Then l1 (width {WIDTH}), silu, l2 (width {WIDTH}), silu, l3 ({OUT} outputs, read as a class). Each skill maps (a, b) to a class by a hidden rule, and nobody will tell you the rules. Some tasks have rules that are short, some have rules with conditions, and some have no rule at all. Some training answers may be wrong.
 
-Training: Adam at learning rate {LR}, {BATCH} examples per skill per step. The batches are fixed in advance and stay the same whatever you do. Training continues from your edited weights and keeps the optimizer's state. {when}
+Training: AdamW at learning rate {LR}, {BATCH} examples per skill per step. The batches are fixed in advance and stay the same whatever you do. Training continues from your edited weights and keeps the optimizer's state. {when}
 
 Goal: high accuracy on pairs (a, b) the network never trained on, where the answers are all correct. 30% of pairs are held out. Two readings count: the first when your last stretch ends, at step {END[mode]}, and the best level after that, while training runs on alone to step {FAR} with the speeds you last set. You never see either reading. You are compared with the best of many training settings at the same steps.
 
